@@ -33,7 +33,7 @@ print(covid_table)
 
 # Function to search through response r for data in the table.
 
-def search_data():
+def searchData():
     output_rows = []
     for table_row in soup.findAll('tr'):
         columns = table_row.findAll('td')
@@ -41,21 +41,24 @@ def search_data():
         for column in columns:
             output_row.append(column.text)
         output_rows.append(output_row)
-        #output_rows = [x.strip(' ') for x in output_rows]
+        output_rows = [x.strip(' ') for x in output_rows]
         #final=list(map(lambda x:x.strip(),output_rows))
         #print(final)
         return output_rows
     
-print(output_rows)
+#print(output_rows)
+#print(type((output_rows))
 #print(type(final))
     
 # function to write the date to an output file. 
-def write_function():
-    
+
+def writeFunction():
     with open('output.csv', 'w') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(["Country", "Cases", "Deaths", "Region"]) 
-        writer.writerows(output_rows)                            
+        writer.writerows(output_rows)
+        return
+                          
                               
                               
                               
